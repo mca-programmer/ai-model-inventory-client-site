@@ -1,141 +1,127 @@
 // src/components/Header.jsx
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
-import logo from "../assets/al logo.png"; 
+import logo from "../assets/al logo.png";
 
 export default function Header() {
   const { user, logout } = useContext(AuthContext);
-  const [open, setOpen] = useState(false);
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
   const navigate = useNavigate();
 
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
   return (
-    <header className="bg-white dark:bg-gray-100 shadow sticky top-0 z-50">
-      <div className="container mx-auto px-4 py-3 flex items-center justify-between">
-        {/* 🔹 Left: Logo + Project Name */}
+    <div className="navbar bg-base-100 dark:bg-gray-900 shadow-md sticky top-0 z-50">
+      {/* Left: Logo */}
+      <div className="flex-1">
         <Link to="/" className="flex items-center gap-2">
-          <img
-            src={logo}
-            alt="AI Model Inventory Logo"
-            className="w-8 h-8 object-contain"
-          />
-          <span className="text-xl font-bold text-gray-800 dark:text-gray-900">
+          <img src={logo} alt="Logo" className="w-10 h-10" />
+          <span className="hidden md:inline-block font-bold text-lg text-gray-800 dark:text-gray-100">
             AI Model Inventory
           </span>
         </Link>
-
-        {/* 🔹 Center: Navigation Links */}
-        <nav className="flex items-center gap-4">
-          <NavLink
-            to="/"
-            className={({ isActive }) =>
-              isActive
-                ? "text-brand-500 font-semibold"
-                : "text-gray-800 dark:text-gray-900"
-            }
-          >
-            Home
-          </NavLink>
-          <NavLink
-            to="/add-model"
-            className={({ isActive }) =>
-              isActive
-                ? "text-brand-500 font-semibold"
-                : "text-gray-800 dark:text-gray-900"
-            }
-          >
-            Add Model
-          </NavLink>
-          <NavLink
-            to="/models"
-            className={({ isActive }) =>
-              isActive
-                ? "text-brand-500 font-semibold"
-                : "text-gray-800 dark:text-gray-900"
-            }
-          >
-            View Models
-          </NavLink>
-        </nav>
-
-        {/* 🔹 Right: Theme + User/Login */}
-        <div className="flex items-center gap-4">
-          <button
-            id="theme-toggle"
-            className="px-3 py-1 text-sm rounded border-2 border-indigo-500/50 transition-colors hover:bg-indigo-500 hover:text-white"
-            onClick={() => {
-              const root = document.documentElement;
-              const isDark = root.getAttribute("data-theme") === "dark";
-              const newTheme = isDark ? "light" : "dark";
-              root.setAttribute("data-theme", newTheme);
-              localStorage.setItem("theme", newTheme);
-            }}
-          >
-            {document.documentElement.getAttribute("data-theme") === "dark"
-              ? "🌙 Dark"
-              : "☀️ Light"}
-          </button>
-
-          {!user ? (
-            <button
-              onClick={() => navigate("/login")}
-              className="bg-purple-500 text-white px-5 py-1 rounded"
-            >
-              Login
-            </button>
-          ) : (
-            <div className="relative">
-              <img
-                src={
-                  user.photoURL ||
-                  `https://ui-avatars.com/api/?name=${
-                    user.displayName || user.email
-                  }`
-                }
-                onClick={() => setOpen(!open)}
-                alt="avatar"
-                className="w-10 h-10 rounded-full cursor-pointer"
-              />
-              {open && (
-                <div className="absolute right-0 mt-2 w-56 bg-white dark:bg-slate-800 border rounded shadow p-3">
-                  <div className="text-sm text-gray-200 font-medium">
-                    {user.displayName}
-                  </div>
-                  <div className="text-xs text-gray-300 mb-2">{user.email}</div>
-                  <hr className="my-2 " />
-                  <button
-                    onClick={() => {
-                      setOpen(false);
-                      navigate("/my-purchases");
-                    }}
-                    className="w-full text-gray-200 text-left py-1"
-                  >
-                    My Purchases
-                  </button>
-                  <button
-                    onClick={() => {
-                      setOpen(false);
-                      navigate("/my-models");
-                    }}
-                    className="w-full text-gray-200 text-left py-1"
-                  >
-                    My Models
-                  </button>
-                  <button
-                    onClick={() => {
-                      logout();
-                      setOpen(false);
-                    }}
-                    className="w-full text-left text-red-500 mt-2"
-                  >
-                    Logout
-                  </button>
-                </div>
-              )}
-            </div>
-          )}
-        </div>
       </div>
-    </header>
+
+      {/* Center: Desktop Navigation */}
+      <div className="hidden lg:flex gap-6 flex-none absolute left-1/2 transform -translate-x-1/2">
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            isActive
+              ? "text-primary font-semibold"
+              : "text-gray-700 dark:text-gray-200 hover:text-primary transition-colors"
+          }
+        >
+          Home
+        </NavLink>
+        <NavLink
+          to="/add-model"
+          className={({ isActive }) =>
+            isActive
+              ? "text-primary font-semibold"
+              : "text-gray-700 dark:text-gray-200 hover:text-primary transition-colors"
+          }
+        >
+          Add Model
+        </NavLink>
+        <NavLink
+          to="/models"
+          className={({ isActive }) =>
+            isActive
+              ? "text-primary font-semibold"
+              : "text-gray-700 dark:text-gray-200 hover:text-primary transition-colors"
+          }
+        >
+          All Models
+        </NavLink>
+      </div>
+
+      {/* Right: Theme Toggle, Profile, Login */}
+      <div className="flex items-center gap-2 md:gap-4 flex-none">
+        {/* Theme Toggle */}
+        <button
+          className="btn btn-sm btn-outline"
+          onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+        >
+          {theme === "dark" ? "🌙" : "☀️"}
+        </button>
+
+        {/* User Profile or Login */}
+        {!user ? (
+          <button
+            className="btn btn-sm btn-primary"
+            onClick={() => navigate("/login")}
+          >
+            Login
+          </button>
+        ) : (
+          <div className="dropdown dropdown-end">
+            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+              <div className="w-10 rounded-full">
+                <img
+                  src={
+                    user.photoURL ||
+                    `https://ui-avatars.com/api/?name=${user.displayName || user.email}`
+                  }
+                  alt="avatar"
+                />
+              </div>
+            </label>
+            <ul
+              tabIndex={0}
+              className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 dark:bg-gray-800 rounded-box w-52"
+            >
+              <li>
+                <span className="font-semibold text-gray-900 dark:text-gray-100">
+                  {user.displayName}
+                </span>
+              </li>
+              <li>
+                <span className="text-gray-500 dark:text-gray-400 text-xs">
+                  {user.email}
+                </span>
+              </li>
+              <li>
+                <button onClick={() => navigate("/my-purchases")}>
+                  My Purchases
+                </button>
+              </li>
+              <li>
+                <button onClick={() => navigate("/my-models")}>My Models</button>
+              </li>
+              <li>
+                <button className="text-red-500" onClick={logout}>
+                  Logout
+                </button>
+              </li>
+            </ul>
+          </div>
+        )}
+      </div>
+    </div>
   );
 }

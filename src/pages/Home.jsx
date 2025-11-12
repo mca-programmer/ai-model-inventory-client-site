@@ -17,13 +17,13 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="bg-gray-50 min-h-screen text-gray-800">
+    <div className="bg-gray-50 dark:bg-gray-100 min-h-screen text-gray-800 dark:text-gray-200 transition-colors duration-500">
       {/* Hero / Slider Section */}
       <Slider />
 
-      {/*  Featured Models Section */}
+      {/* Featured Models Section */}
       <section className="container mx-auto px-6 py-16">
-        <h2 className="text-3xl font-bold text-center mb-10 text-indigo-700">
+        <h2 className="text-3xl font-bold text-center mb-10 text-indigo-700 dark:text-indigo-400">
           Featured AI Models
         </h2>
 
@@ -38,23 +38,23 @@ export default function Home() {
             ))}
           </div>
         ) : (
-          <div className="text-center text-gray-500 text-lg">
+          <div className="text-center text-gray-500 dark:text-gray-400 text-lg">
             No models added yet.
           </div>
         )}
       </section>
 
-      {/*  About AI Models Section */}
-      <section className="container mx-auto px-6 py-16 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-2xl shadow-xl text-white">
+      {/* About AI Models Section */}
+      <section className="container mx-auto px-6 py-16 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-2xl shadow-xl text-white dark:text-gray-200">
         <h2 className="text-3xl font-bold text-center mb-10">
           About AI Models
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Card 1 */}
-          <div className="bg-white/20 backdrop-blur-md p-8 rounded-xl shadow-lg hover:bg-white/30 transition duration-300">
+          <div className="bg-white/20 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 backdrop-blur-md p-8 rounded-xl shadow-lg hover:bg-white/30 dark:hover:bg-gray-700 transition duration-300">
             <h3 className="text-2xl font-semibold mb-3 text-center">
-               Neural Networks
+              Neural Networks
             </h3>
             <p className="text-base text-center leading-relaxed">
               Neural networks mimic the human brain to recognize patterns and
@@ -64,9 +64,9 @@ export default function Home() {
           </div>
 
           {/* Card 2 */}
-          <div className="bg-white/20 backdrop-blur-md p-8 rounded-xl shadow-lg hover:bg-white/30 transition duration-300">
+          <div className="bg-white/20 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 backdrop-blur-md p-8 rounded-xl shadow-lg hover:bg-white/30 dark:hover:bg-gray-700 transition duration-300">
             <h3 className="text-2xl font-semibold mb-3 text-center">
-               Transformers
+              Transformers
             </h3>
             <p className="text-base text-center leading-relaxed">
               Transformers power NLP systems like ChatGPT and Google Translate
@@ -75,9 +75,9 @@ export default function Home() {
           </div>
 
           {/* Card 3 */}
-          <div className="bg-white/20 backdrop-blur-md p-8 rounded-xl shadow-lg hover:bg-white/30 transition duration-300">
+          <div className="bg-white/20 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 backdrop-blur-md p-8 rounded-xl shadow-lg hover:bg-white/30 dark:hover:bg-gray-700 transition duration-300">
             <h3 className="text-2xl font-semibold mb-3 text-center">
-               Computer Vision
+              Computer Vision
             </h3>
             <p className="text-base text-center leading-relaxed">
               Computer vision models help machines understand visual data — from
@@ -88,8 +88,8 @@ export default function Home() {
       </section>
 
       {/* Get Started Section */}
-      <section className="container mx-auto px-6 py-16 text-center mt-16 bg-gradient-to-r from-purple-500 via-pink-500 to-rose-500 rounded-2xl shadow-lg text-white">
-        <div className="bg-white/20 backdrop-blur-md p-10 rounded-xl max-w-2xl mx-auto">
+      <section className="container mx-auto px-6 py-16 text-center mt-16 bg-gradient-to-r from-purple-500 via-pink-500 to-rose-500 rounded-2xl shadow-lg text-white dark:text-gray-200 transition-colors duration-500">
+        <div className="bg-white/20 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 backdrop-blur-md p-10 rounded-xl max-w-2xl mx-auto transition duration-500">
           <h3 className="text-4xl font-bold mb-4">
             Get Started with AI Models
           </h3>
@@ -106,7 +106,7 @@ export default function Home() {
             </a>
             <a
               href="/login"
-              className="bg-white/20 hover:bg-white/30 text-white font-medium px-6 py-3 rounded-lg shadow-md transition transform hover:scale-105"
+              className="bg-white/20 dark:bg-gray-700 hover:bg-white/30 dark:hover:bg-gray-600 text-white dark:text-gray-200 font-medium px-6 py-3 rounded-lg shadow-md transition transform hover:scale-105"
             >
               Login
             </a>
