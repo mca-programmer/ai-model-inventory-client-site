@@ -41,14 +41,14 @@ export default function Login() {
       </h2>
       <form
         onSubmit={handleSubmit}
-        className="space-y-4 bg-white p-6 rounded shadow"
+        className="space-y-4 bg-gradient-to-br from-purple-200 via-indigo-100 to-blue-200 p-6 rounded shadow"
       >
         {/* Email input */}
         <input
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Email"
-          className="w-full p-2 border rounded"
+          className="w-full p-2 text-gray-700 dark:text-gray-900 border rounded"
         />
 
         {/* Password input with toggle */}
@@ -58,7 +58,7 @@ export default function Login() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Password"
-            className="w-full p-2 border rounded"
+            className="w-full p-2 text-gray-700 dark:text-gray-900 border rounded"
           />
           <button
             type="button"
@@ -94,7 +94,7 @@ export default function Login() {
         <button
           type="button"
           onClick={handleGoogle}
-          className="w-full flex items-center justify-center border border-gray-300 py-3 rounded font-semibold hover:bg-gray-100 transition-colors"
+          className="w-full flex items-center justify-center border border-gray-300 py-3 text-gray-700 dark:text-gray-900 rounded font-semibold hover:bg-gray-100 transition-colors"
         >
           <FcGoogle className="mr-2 text-lg" /> Sign in with Google
         </button>
