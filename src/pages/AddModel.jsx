@@ -15,6 +15,7 @@ export default function AddModel() {
     description: "",
   });
   const [file, setFile] = useState(null);
+  const [imageURL, setImageURL] = useState("");
   const [preview, setPreview] = useState(null);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -24,17 +25,23 @@ export default function AddModel() {
     if (!selectedFile) return;
     setFile(selectedFile);
     setPreview(URL.createObjectURL(selectedFile));
+    setImageURL(""); // Clear URL if user selects file
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!file) {
-      toast.error("Please select an image");
+    if (!file && !imageURL) {
+      toast.error("Please select a file or enter an image URL");
       return;
     }
+
     try {
       setLoading(true);
-      const imgUrl = await uploadToImgBB(file);
+      let imgUrl = imageURL;
+      if (file) {
+        imgUrl = await uploadToImgBB(file);
+      }
+
       const token = await getToken();
       const payload = {
         ...form,
@@ -43,12 +50,13 @@ export default function AddModel() {
         createdAt: new Date(),
         purchased: 0,
       };
+
       await api.addModel(payload, token);
       toast.success("Model added successfully!");
       navigate("/models");
     } catch (err) {
       console.error(err);
-      toast.error("Failed to add model");
+      toast.error(err?.response?.data?.message || "Failed to add model");
     } finally {
       setLoading(false);
     }
@@ -75,6 +83,7 @@ export default function AddModel() {
               className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400 dark:bg-gray-700 dark:text-gray-100 transition"
             />
           ))}
+
           <textarea
             required
             value={form.description}
@@ -83,13 +92,27 @@ export default function AddModel() {
             rows={4}
             className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400 dark:bg-gray-700 dark:text-gray-100 transition"
           />
-          <div>
+
+          <div className="space-y-2">
+            <input
+              type="text"
+              placeholder="Or paste image URL"
+              value={imageURL}
+              onChange={(e) => {
+                setImageURL(e.target.value);
+                setFile(null);
+                setPreview(e.target.value);
+              }}
+              className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400 dark:bg-gray-700 dark:text-gray-100 transition"
+            />
+
             <input
               type="file"
               accept="image/*"
               onChange={handleFileChange}
               className="w-full text-gray-700 dark:text-gray-200"
             />
+
             {preview && (
               <img
                 src={preview}
@@ -98,15 +121,15 @@ export default function AddModel() {
               />
             )}
           </div>
+
           <button
             type="submit"
             disabled={loading}
-            className={`w-full py-3 rounded-lg text-white font-semibold transition 
-                        ${
-                          loading
-                            ? "bg-gray-400 cursor-not-allowed"
-                            : "bg-indigo-600 hover:bg-indigo-700"
-                        }`}
+            className={`w-full py-3 rounded-lg text-white font-semibold transition ${
+              loading
+                ? "bg-gray-400 cursor-not-allowed"
+                : "bg-indigo-600 hover:bg-indigo-700"
+            }`}
           >
             {loading ? "Saving..." : "Add Model"}
           </button>
