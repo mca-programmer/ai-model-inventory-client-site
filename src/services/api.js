@@ -1,7 +1,7 @@
 import axios from "axios";
 import { toast } from "react-hot-toast";
 
-const API_BASE = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000/api";
+const API_BASE = import.meta.env.VITE_BACKEND_URL || "https://ai-model-inventory-server-site.vercel.app/api";
 
 const client = axios.create({
   baseURL: API_BASE,

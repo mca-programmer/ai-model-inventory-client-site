@@ -32,8 +32,8 @@ export default function Header() {
           to="/"
           className={({ isActive }) =>
             isActive
-              ? "text-primary font-semibold"
-              : "text-gray-700 dark:text-gray-200 hover:text-primary transition-colors"
+              ? "text-purple-500 font-semibold"
+              : "text-gray-700 dark:text-gray-200 hover:text-purple-500 transition-colors"
           }
         >
           Home
@@ -42,8 +42,8 @@ export default function Header() {
           to="/add-model"
           className={({ isActive }) =>
             isActive
-              ? "text-primary font-semibold"
-              : "text-gray-700 dark:text-gray-200 hover:text-primary transition-colors"
+              ? "text-purple-500 font-semibold"
+              : "text-gray-700 dark:text-gray-200 hover:text-purple-500 transition-colors"
           }
         >
           Add Model
@@ -52,8 +52,8 @@ export default function Header() {
           to="/models"
           className={({ isActive }) =>
             isActive
-              ? "text-primary font-semibold"
-              : "text-gray-700 dark:text-gray-200 hover:text-primary transition-colors"
+              ? "text-purple-500 font-semibold"
+              : "text-gray-700 dark:text-gray-200 hover:text-purple-500 transition-colors"
           }
         >
           All Models
@@ -73,7 +73,7 @@ export default function Header() {
         {/* User Profile or Login */}
         {!user ? (
           <button
-            className="btn btn-sm btn-primary bg-purple-500"
+            className="btn btn-sm btn-purple-text-purple-500 bg-purple-500"
             onClick={() => navigate("/login")}
           >
             Login
