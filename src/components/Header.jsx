@@ -21,7 +21,7 @@ export default function Header() {
         <Link to="/" className="flex items-center gap-2">
           <img src={logo} alt="Logo" className="w-10 h-10" />
           <span className="hidden md:inline-block font-bold text-lg text-gray-800 dark:text-gray-100">
-            AI Model Inventory
+            <span className="text-yellow-300">AiModel</span> <span className="text-red-500">Inventory</span>  
           </span>
         </Link>
       </div>

@@ -17,7 +17,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="bg-gray-50 dark:bg-gray-100 min-h-screen text-gray-800 dark:text-gray-200 transition-colors duration-500">
+     <div className="bg-gray-50 dark:bg-gray-100 min-h-screen text-gray-800 dark:text-gray-200 transition-colors duration-500">
       {/* Hero / Slider Section */}
       <Slider />
 

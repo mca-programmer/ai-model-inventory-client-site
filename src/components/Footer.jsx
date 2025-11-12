@@ -17,7 +17,7 @@ export default function Footer() {
             className="w-9 h-9 object-contain"
           />
           <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-100">
-            AI Model Inventory Manager
+            <span className="text-yellow-300">AiModel</span> <span className="text-red-500">Inventory</span>  
           </h2>
         </div>
 
