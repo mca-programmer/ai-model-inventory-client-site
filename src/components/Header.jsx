@@ -73,7 +73,7 @@ export default function Header() {
         {/* User Profile or Login */}
         {!user ? (
           <button
-            className="btn btn-sm btn-primary"
+            className="btn btn-sm btn-primary bg-purple-500"
             onClick={() => navigate("/login")}
           >
             Login

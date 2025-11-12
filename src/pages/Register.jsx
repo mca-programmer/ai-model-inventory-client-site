@@ -41,14 +41,14 @@ export default function Register() {
       </h2>
       <form
         onSubmit={handleSubmit}
-        className="space-y-4 bg-white p-6 rounded shadow"
+        className="space-y-4 bg-gradient-to-br from-purple-200 via-indigo-100 to-blue-200 p-6 rounded shadow"
       >
         {/* Name */}
         <input
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder="Name"
-          className="w-full p-2 border rounded"
+          className="w-full p-2 border rounded  text-gray-700 dark:text-gray-900 "
         />
 
         {/* Email */}
@@ -56,7 +56,7 @@ export default function Register() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Email"
-          className="w-full p-2 border rounded"
+          className="w-full p-2 border rounded  text-gray-700 dark:text-gray-900 "
         />
 
         {/* Photo URL */}
@@ -64,7 +64,7 @@ export default function Register() {
           value={photoURL}
           onChange={(e) => setPhotoURL(e.target.value)}
           placeholder="Photo URL"
-          className="w-full p-2 border rounded"
+          className="w-full p-2 border rounded  text-gray-700 dark:text-gray-900 "
         />
 
         {/* Password input with toggle */}
@@ -74,7 +74,7 @@ export default function Register() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Password"
-            className="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-brand-500"
+            className="w-full p-3 border text-gray-700 dark:text-gray-900 rounded focus:outline-none focus:ring-2 focus:ring-brand-500"
           />
           <button
             type="button"
@@ -110,7 +110,7 @@ export default function Register() {
         <button
           type="button"
           onClick={handleGoogle}
-          className="w-full flex items-center justify-center border border-gray-300 py-3 rounded font-semibold hover:bg-gray-100 transition-colors"
+          className="w-full flex items-center justify-center border border-gray-300 text-gray-700 dark:text-gray-900 py-3 rounded font-semibold hover:bg-gray-100 transition-colors"
         >
           <FcGoogle className="mr-2 text-lg" /> Sign up with Google
         </button>
