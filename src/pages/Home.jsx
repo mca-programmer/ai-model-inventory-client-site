@@ -44,7 +44,7 @@ export default function Home() {
         )}
       </section>
 
-      {/* 🌐 About AI Models Section */}
+      {/*  About AI Models Section */}
       <section className="container mx-auto px-6 py-16 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-2xl shadow-xl text-white">
         <h2 className="text-3xl font-bold text-center mb-10">
           About AI Models
