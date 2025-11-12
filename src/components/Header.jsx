@@ -93,7 +93,7 @@ export default function Header() {
             </label>
             <ul
               tabIndex={0}
-              className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 dark:bg-gray-800 rounded-box w-52"
+              className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 rounded-box w-52"
             >
               <li>
                 <span className="font-semibold text-gray-900 dark:text-gray-100">
