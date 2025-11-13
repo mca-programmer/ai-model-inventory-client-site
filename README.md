@@ -1,15 +1,15 @@
 # CLIENT — AI Model Inventory Manager (Frontend)
 
-## Tech Stack: React + Tailwind CSS + React Router + Firebase Auth + ImgBB + Axios + React Hot Toast
+Tech Stack: React + Tailwind CSS + React Router + Firebase Auth + ImgBB + Axios + React Hot Toast
 
 
 ### Live Link: https://ai-modle-inventory.web.app/
 
-📁 Folder Structure
-client/
-│
-├── src/
-│   ├── components/      # Shared UI Components (Header, Footer, Slider, etc.)
+ Folder Structure <br>
+client/ <br>
+│ <br>
+├── src/ <br>
+│   ├── components/      # Shared UI Components (Header, Footer, Slider, etc.) <br>
 │   ├── context/         # Auth Context (Firebase)
 │   ├── pages/           # All Pages (Home, Login, Register, Models, AddModel, etc.)
 │   ├── routes/          # ProtectedRoute setup
@@ -45,4 +45,6 @@ npm run dev
 ✅ ImgBB image upload integration
 
 ---
-Thank you
+## Thank You! <br>
+
+If you like this project, consider giving it a ⭐ on GitHub or sharing it with others who love AI-based web apps!
