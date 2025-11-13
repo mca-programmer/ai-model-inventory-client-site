@@ -1,16 +1,48 @@
-# React + Vite
+# CLIENT — AI Model Inventory Manager (Frontend)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Tech Stack: React + Tailwind CSS + React Router + Firebase Auth + ImgBB + Axios + React Hot Toast
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Live Link: https://ai-modle-inventory.web.app/
 
-## React Compiler
+📁 Folder Structure
+client/
+│
+├── src/
+│   ├── components/      # Shared UI Components (Header, Footer, Slider, etc.)
+│   ├── context/         # Auth Context (Firebase)
+│   ├── pages/           # All Pages (Home, Login, Register, Models, AddModel, etc.)
+│   ├── routes/          # ProtectedRoute setup
+│   ├── services/        # Axios API & ImgBB upload
+│   ├── App.jsx          # Main App with Routing
+│   ├── main.jsx         # React DOM Entry
+│   └── index.css        # Tailwind setup
+│
+├── .env.example
+├── tailwind.config.js
+├── postcss.config.js
+├── package.json
+└── README.md
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
+## Install dependencies
+npm install
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+## Run locally
+npm run dev
+
+✨ Features
+
+✅ Firebase Authentication (Email + Google)
+✅ Dynamic Featured Models section (from backend)
+✅ CRUD (Create, Read, Update, Delete) operations
+✅ Purchase functionality (increment purchase count)
+✅ My Models & My Purchases pages
+✅ Dark / Light Theme toggle (saved in localStorage)
+✅ Responsive, modern UI with TailwindCSS
+✅ Toast notifications (react-hot-toast)
+✅ ImgBB image upload integration
+
+---
+Thank you
