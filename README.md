@@ -10,38 +10,39 @@ client/ <br>
 │ <br>
 ├── src/ <br>
 │   ├── components/      # Shared UI Components (Header, Footer, Slider, etc.) <br>
-│   ├── context/         # Auth Context (Firebase)
-│   ├── pages/           # All Pages (Home, Login, Register, Models, AddModel, etc.)
-│   ├── routes/          # ProtectedRoute setup
-│   ├── services/        # Axios API & ImgBB upload
-│   ├── App.jsx          # Main App with Routing
-│   ├── main.jsx         # React DOM Entry
-│   └── index.css        # Tailwind setup
-│
-├── .env.example
-├── tailwind.config.js
-├── postcss.config.js
-├── package.json
+│   ├── context/         # Auth Context (Firebase) <br>
+│   ├── pages/           # All Pages (Home, Login, Register, Models, AddModel, etc.) <br>
+│   ├── routes/          # ProtectedRoute setup <br>
+│   ├── services/        # Axios API & ImgBB upload <br>
+│   ├── App.jsx          # Main App with Routing <br>
+│   ├── main.jsx         # React DOM Entry <br>
+│   └── index.css        # Tailwind setup <br>
+│ <br>
+├── .env.example <br>
+├── tailwind.config.js <br>
+├── postcss.config.js <br>
+├── package.json <br>
 └── README.md
 
 
-## Install dependencies
+
+### Install dependencies <br>
 npm install
 
 
-## Run locally
+### Run locally <br>
 npm run dev
 
-✨ Features
+Features <br>
 
-✅ Firebase Authentication (Email + Google)
-✅ Dynamic Featured Models section (from backend)
-✅ CRUD (Create, Read, Update, Delete) operations
-✅ Purchase functionality (increment purchase count)
-✅ My Models & My Purchases pages
-✅ Dark / Light Theme toggle (saved in localStorage)
-✅ Responsive, modern UI with TailwindCSS
-✅ Toast notifications (react-hot-toast)
+✅ Firebase Authentication (Email + Google) <br>
+✅ Dynamic Featured Models section (from backend) <br>
+✅ CRUD (Create, Read, Update, Delete) operations <br>
+✅ Purchase functionality (increment purchase count) <br> 
+✅ My Models & My Purchases pages <br>
+✅ Dark / Light Theme toggle (saved in localStorage) <br>
+✅ Responsive, modern UI with TailwindCSS <br>
+✅ Toast notifications (react-hot-toast) <br>
 ✅ ImgBB image upload integration
 
 ---
