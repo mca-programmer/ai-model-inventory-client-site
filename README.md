@@ -3,7 +3,7 @@
 **Live Link:** [https://ai-modle-inventory.web.app/](https://ai-modle-inventory.web.app/)
 
 ---
-
+[![ai.png](https://i.postimg.cc/8cStgrM9/ai.png)](https://postimg.cc/xJ6KK8s3)
 ## 🚀 Project Overview
 
 A modern frontend application for managing AI models inventory. Users can add, edit, delete, and purchase AI models. The app features authentication, responsive UI, theme toggling, toast notifications, and image uploads using ImgBB.
